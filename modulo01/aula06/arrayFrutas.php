@@ -9,6 +9,7 @@ $frutas = [
 ];
 
 $frutas [100] = 'melancia';
+$frutas[2] = 'Calcinha preta';
 
 echo '<ul>';
 
