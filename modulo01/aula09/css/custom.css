@@ -1,0 +1,5 @@
+.table {
+  --bs-table-color: white;
+  --bs-table-bg: black;
+  --bs-table-border-color: transparent;
+}
