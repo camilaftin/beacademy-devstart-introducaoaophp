@@ -20,3 +20,7 @@ function listar(){
 function pagina404(){
   include 'telas/404.php';
 }
+
+function relatorio(){
+  include 'telas/relatorio.php';
+}

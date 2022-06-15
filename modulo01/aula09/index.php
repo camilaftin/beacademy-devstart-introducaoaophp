@@ -8,7 +8,17 @@ include 'telas/menu.php';
 
 include 'acoes.php';
 
-if($url === '/'){
+match($url){
+  '/' => home(),
+  '/login' => login(),
+  '/cadastro' => cadastro(),
+  '/listar' => listar(),
+  '/relatorio' => relatorio(),
+   default => pagina404(),
+};
+
+
+/*if($url === '/'){
   home();
   //include 'telas/home.php';
   
@@ -28,5 +38,5 @@ if($url === '/'){
   pagina404();
   //include 'telas/404.php';
  
-}
+}*/
 include 'telas/footer.php';
