@@ -2,14 +2,31 @@
 
 $url = $_SERVER['REQUEST_URI'];
 
-if($url === '/'){
+include 'telas/head.php';
 
-  include 'telas/home.php';
-  //echo '<h1>Pagina Inicial</h1>';
+include 'telas/menu.php';
+
+include 'acoes.php';
+
+if($url === '/'){
+  home();
+  //include 'telas/home.php';
+  
 }else if($url === '/login'){
-  echo '<h1>Pagina de login<h1>';
+  login();
+  //include 'telas/login.php';
+  
 }else if($url === '/cadastro'){
-  echo '<h1>Pagina de cadastro<h1>';
+  cadastro();
+  //include 'telas/cadastro.php';
+  
+}elseif ($url === '/listar'){
+  listar();
+  //include 'telas/listar.php';
+
 }else{
-  echo '<h1>Pagina nao encontrada<h1>';
+  pagina404();
+  //include 'telas/404.php';
+ 
 }
+include 'telas/footer.php';
