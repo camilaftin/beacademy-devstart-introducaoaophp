@@ -18,7 +18,7 @@ function cadastro(){
     fclose($arquivo);
 
     $mensagem = 'Pronto, cadastro realizado';
-    
+
     include 'telas/mensagem.php';
 
   }
@@ -42,4 +42,62 @@ function pagina404(){
 
 function relatorio(){
   include 'telas/relatorio.php';
+}
+
+function excluir(){
+
+  $id = $_GET['id'];
+
+  $contatos = file('dados/contatos.csv');
+
+  unset($contatos[$id]);
+
+  unlink('dados/contatos.csv');
+
+  $arquivo = fopen('dados/contatos.csv', 'a+');
+
+  foreach($contatos as $cadaContato){
+    fwrite($arquivo, $cadaContato);
+  }
+
+  $mensagem = "Pronto, contato excluido";
+  include 'telas/mensagem.php';
+
+}
+
+function editar(){
+
+  $id = $_GET['id'];
+
+  $contatos = file('dados/contatos.csv');
+
+  if($_POST){
+
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $telefone = $_POST['telefone'];
+
+    $contatos[$id] = "{$nome};{$email};{$telefone}".PHP_EOL;
+
+    unlink('dados/contatos.csv');
+
+    $arquivo = fopen('dados/contatos.csv', 'a+');
+
+    foreach($contatos as $cadaContato){
+      fwrite($arquivo, $cadaContato);
+    }
+
+    fclose($arquivo);
+
+    $mensagem = "Pronto, contato atualizado";
+    include 'telas/mensagem.php';
+
+
+  }
+
+  
+
+  $dados = explode(';', $contatos[$id]);
+
+  include 'telas/editar.php';
 }
