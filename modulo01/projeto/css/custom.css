@@ -3,3 +3,13 @@
   --bs-table-bg: #FFE4E1;
   --bs-table-border-color: transparent;
 }
+
+.alert{
+  background-color:#FFE4E1 ;
+}
+
+.btn {
+  background-color:#F0F8FF;
+  color:black;
+}
+

@@ -6,7 +6,7 @@ function login(){
 
 
 function cadastro(){
-  
+
   if($_POST){
     $nome = $_POST['nome'];
     $email = $_POST['email'];
@@ -17,7 +17,9 @@ function cadastro(){
     
     fclose($arquivo);
 
-    echo 'Pronto, cadastro realizado';
+    $mensagem = 'Pronto, cadastro realizado';
+    
+    include 'telas/mensagem.php';
 
   }
   
